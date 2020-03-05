@@ -74,9 +74,11 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_doc_keywordprg_enabled = 0
+let g:go_doc_popup_window = 1
 
 
 call plug#begin('~/.config/nvim/plugged')
+Plug 'jiangmiao/auto-pairs'
 " Snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -127,6 +129,9 @@ Plug 'tmhedberg/SimpylFold'
 
 "highlight
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+
+"start
+Plug 'mhinz/vim-startify'
 call plug#end()
 
 " TextEdit might fail if hidden is not set.
@@ -275,7 +280,7 @@ runtime! partials/defx.vim
 let g:defx_icons_enable_syntax_highlight = 1
 
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'powerlineish'
+let g:airline_theme = "powerlineish" "'gruvbox'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
