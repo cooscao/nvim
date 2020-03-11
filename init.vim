@@ -22,7 +22,7 @@ noremap <LEADER><CR> :nohlsearch<CR>
 set guioptions-=L
 set guioptions-=b
 set showtabline=0
-set guifont=Monaco:h13
+"set guifont=Monaco:h13
 set background=dark 
 set nowrap 
 set fileformat=unix 
@@ -32,6 +32,7 @@ set tabstop=4
 set shiftwidth=4    
 set showmatch 
 set scrolloff=5     
+"set termguicolors
 set laststatus=2  
 set fenc=utf-8    
 set backspace=2
@@ -47,6 +48,7 @@ set cursorline
 set number
 set foldmethod=indent
 set foldlevel=99
+
 
 " 分屏
 " 纵向分屏
@@ -67,14 +69,6 @@ vmap <C-c> :w !pbcopy<CR><CR>
 
 "文件关联
 au BufNewFile,BufRead *.tmpl set filetype=html
-
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-let g:go_doc_keywordprg_enabled = 0
-let g:go_doc_popup_window = 1
 
 
 call plug#begin('~/.config/nvim/plugged')
@@ -286,8 +280,10 @@ let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#branch#enabled=1
 let g:airline#extensions#hunks#enabled=1
+" 缓冲区操作bn下一个.bp上一个,bd关闭
 nnoremap <C-k> :bn<CR>
 nnoremap <C-j> :bp<CR>
+nnoremap <C-d> :bd<CR>
 
 
 " [Buffers] Jump to the existing window if possible
@@ -341,4 +337,28 @@ let g:NERDToggleCheckAllLines = 1
 
 let g:switch_mapping = "-"
 
-let g:semshi#filetypes = ['python', 'go']
+let g:semshi#filetypes = ['python']
+
+"vim-go
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
+autocmd FileType go nmap <leader>b  <Plug>(go-build)
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
+autocmd FileType go nmap gr :GoRun %<CR>
+let g:go_list_type = "quickfix"
+let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+" let g:go_metalinter_autosave = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_generate_tags = 1
+let g:go_doc_keywordprg_enabled = 0
+let g:go_doc_popup_window = 1
+
+nnoremap cr :!g++ -std=c++11 % -o ./a.out && ./a.out<CR>
