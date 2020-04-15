@@ -3,7 +3,6 @@
 	"python.condaPath": "/Users/cao/miniconda3/envs/venv/bin/python",
 	"python.linting.enabled": true,
 	"python.linting.pylintEnabled": true,
-	"python.linting.flake8Enabled": true,
 	"languageserver": {
 		"golang": {
 			"command": "gopls",
@@ -117,10 +116,6 @@
 			}
 		}
 	},
-	"html.filetypes": [
-		"html",
-		"handlebars"
-	],
 	"suggest.noselect": false,
 	"suggest.enablePreview": true,
 	"suggest.floatEnable": true,

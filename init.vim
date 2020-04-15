@@ -362,3 +362,4 @@ let g:go_doc_keywordprg_enabled = 0
 let g:go_doc_popup_window = 1
 
 nnoremap cr :!g++ -std=c++11 % -o ./a.out && ./a.out<CR>
+nnoremap pr :!python %<CR>
